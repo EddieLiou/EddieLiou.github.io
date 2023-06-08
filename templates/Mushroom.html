@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mushroom</title>
+    </head>
+    <style>
+        
+
+table {
+    width: 100%;        
+    border-collapse: collapse;
+    table-layout: fixed ;
+}
+td {
+    text-align: left;
+    border: 1px solid;
+}
+
+tr:nth-child(even) {background-color: #d0d0d0;}
+tr:nth-child(even) select{background-color: #d0d0d0;}
+
+
+select{
+    margin: 0px;
+    padding: 5px;
+    width: 100%;
+    align-items: right;
+    border: 0px;
+}
+td:nth-child(even):hover{background-color: #b0b0b0;}
+select:hover{background-color: #e0e0e0;}
+tr:nth-child(even) select:hover{background-color: #b0b0b0;}
+
+
+input{
+    width: 100%;
+}
+    </style>
+    <body>
+        <!-- # ['cap_shape','cap_surface','cap_color','bruises','odor','gill_attachment','gill_spacing','gill_size','gill_color','stalk_shape','stalk_root','stalk_surface_above_ring','stalk_surface_below_ring','stalk_color_above_ring','stalk_color_below_ring','veil_type','veil_color','ring_number','ring_type','spore_print_color','population','habitat'] -->
+        <h1>Mushroom</h1>
+        <form action="/submit" method="post" enctype="multipart/form-data">
+        <table>
+            <tr><!--cap-shape: bell=b,conical=c,convex=x,flat=f, knobbed=k,sunken=s-->
+                <td><label for="cap_shape">Cap-shape</label></td>
+                <td><select name="cap_shape" id="cap_shape">
+                    <option value="0" {{cap_shape_b}}>bell</option>
+                    <option value="1" {{cap_shape_c}}>conical</option>
+                    <option value="2" {{cap_shape_x}}>convex</option>
+                    <option value="3" {{cap_shape_f}}>flat</option>
+                    <option value="4" {{cap_shape_k}}>knobbed</option>
+                    <option value="5" {{cap_shape_s}}>sunken</option>
+                </select></td>
+                <!--cap-surface: fibrous=f,grooves=g,scaly=y,smooth=s-->
+                <td><label for="cap_surface">Cap-surface</label></td>
+                <td><select name="cap_surface" id="cap_surface">
+                    <option value="0" {{cap_surface_f}}>fibrous</option>
+                    <option value="1" {{cap_surface_g}}>grooves</option>
+                    <option value="2" {{cap_surface_y}}>scaly</option>
+                    <option value="3" {{cap_surface_s}}>smooth</option>
+                </select></td>
+                <!--cap-color: brown=n,buff=b,cinnamon=c,gray=g,green=r,pink=p,purple=u,red=e,white=w,yellow=y-->
+                <td><label for="cap_color">Cap-color</label></td>
+                <td><select name="cap_color" id="cap_color">
+                    <option value="0" {{cap_color_n}}>brown</option>
+                    <option value="1" {{cap_color_b}}>buff</option>
+                    <option value="2" {{cap_color_c}}>cinnamon</option>
+                    <option value="3" {{cap_color_g}}>gray</option>
+                    <option value="4" {{cap_color_r}}>green</option>
+                    <option value="5" {{cap_color_p}}>pink</option>
+                    <option value="6" {{cap_color_u}}>purple</option>
+                    <option value="7" {{cap_color_e}}>red</option>
+                    <option value="8" {{cap_color_w}}>white</option>
+                    <option value="9" {{cap_color_y}}>yellow</option>
+                </select></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr><!--bruises: bruises=t,no=f-->
+                <td><label for="bruises">Bruises</label></td>
+                <td><select name="bruises" id="bruises">
+                    <option value="1" {{bruises_t}}>Yes</option>
+                    <option value="0" {{bruises_f}}>No</option>
+                </select></td>
+                <!--odor: almond=a,anise=l,creosote=c,fishy=y,foul=f,musty=m,none=n,pungent=p,spicy=s-->
+                <td><label for="odor">Odor</label></td>
+                <td><select name="odor" id="odor">
+                    <option value="0" {{odor_a}}>almond</option>
+                    <option value="1" {{odor_l}}>anise</option>
+                    <option value="2" {{odor_c}}>creosote</option>
+                    <option value="3" {{odor_y}}>fishy</option>
+                    <option value="4" {{odor_f}}>foul</option>
+                    <option value="5" {{odor_m}}>musty</option>
+                    <option value="6" {{odor_n}}>none</option>
+                    <option value="7" {{odor_p}}>pungent</option>
+                    <option value="8" {{odor_s}}>spicy</option>
+                </select></td>
+                <td></td><td></td><td></td><td></td>    
+            </tr>
+            <tr><!--gill-attachment: attached=a,descending=d,free=f,notched=n-->
+                <td><label for="gill_attachment">Gill-attachment</label></td>
+                <td><select name="gill_attachment" id="gill_attachment">
+                    <option value="0" {{gill_attachment_a}}>attached</option>
+                    <option value="1" {{gill_attachment_d}}>descending</option>
+                    <option value="2" {{gill_attachment_f}}>free</option>
+                    <option value="3" {{gill_attachment_n}}>notched</option>
+                </select></td>
+                <!--gill-spacing: close=c,crowded=w,distant=d-->
+                <td><label for="gill_spacing">Gill-spacing</label></td>
+                <td><select name="gill_spacing" id="gill_spacing">
+                    <option value="0" {{gill_spacing_c}}>close</option>
+                    <option value="1" {{gill_spacing_w}}>crowded</option>
+                    <option value="2" {{gill_spacing_d}}>distant</option>
+                </select></td>
+                <!--gill-size: broad=b,narrow=n-->
+                <td><label for="gill_size">Gill-size</label></td>
+                <td><select name="gill_size" id="gill_size">
+                    <option value="0" {{gill_size_b}}>broad</option>
+                    <option value="1" {{gill_size_n}}>narrow</option>
+                </select></td>
+                <!--gill-color: black=k,brown=n,buff=b,chocolate=h,gray=g, green=r,orange=o,pink=p,purple=u,red=e,white=w,yellow=y-->
+                <td><label for="gill_color">Gill-color</label></td>
+                <td><select name="gill_color" id="gill_color">
+                    <option value="0" {{gill_color_k}}>black</option>
+                    <option value="1" {{gill_color_n}}>brown</option>
+                    <option value="2" {{gill_color_b}}>buff</option>
+                    <option value="3" {{gill_color_h}}>chocolate</option>
+                    <option value="4" {{gill_color_g}}>gray</option>
+                    <option value="5" {{gill_color_r}}>green</option>
+                    <option value="6" {{gill_color_o}}>orange</option>
+                    <option value="7" {{gill_color_p}}>pink</option>
+                    <option value="8" {{gill_color_u}}>purple</option>
+                    <option value="9" {{gill_color_e}}>red</option>
+                    <option value="10" {{gill_color_w}}>white</option>
+                    <option value="11" {{gill_color_y}}>yellow</option>
+                </select></td>
+            </tr>
+            <tr><!--stalk-shape: enlarging=e,tapering=t-->
+                <td><label for="stalk_shape">Stalk-shape</label></td>
+                <td><select name="stalk_shape" id="stalk_shape">
+                    <option value="0" {{stalk_shape_e}}>enlarging</option>
+                    <option value="1" {{stalk_shape_t}}>tapering</option>
+                </select></td>
+                <!--stalk-root: bulbous=b,club=c,cup=u,equal=e,rhizomorphs=z,rooted=r,missing=?-->
+                <td><label for="stalk_root">Stalk-root</label></td>
+                <td><select name="stalk_root" id="stalk_root">
+                    <option value="0" {{stalk_root_b}}>bulbous</option>
+                    <option value="1" {{stalk_root_c}}>club</option>
+                    <option value="2" {{stalk_root_u}}>cup</option>
+                    <option value="3" {{stalk_root_e}}>equal</option>
+                    <option value="4" {{stalk_root_z}}>rhizomorphs</option>
+                    <option value="5" {{stalk_root_r}}>rooted</option>
+                    <option value="6" {{stalk_root_Na}}>missing</option>
+                </select></td>
+                <!--stalk-surface-above-ring: fibrous=f,scaly=y,silky=k,smooth=s-->
+                <td><label for="stalk_surface_above_ring">Stalk-surface-above-ring</label></td>
+                <td><select name="stalk_surface_above_ring" id="stalk_surface_above_ring">
+                    <option value="0" {{stalk_surface_above_ring_f}}>fibrous</option>
+                    <option value="1" {{stalk_surface_above_ring_y}}>scaly</option>
+                    <option value="2" {{stalk_surface_above_ring_k}}>silky</option>
+                    <option value="3" {{stalk_surface_above_ring_s}}>smooth</option>
+                </select></td>
+                <!--stalk-surface-below-ring: fibrous=f,scaly=y,silky=k,smooth=s-->
+                <td><label for="stalk_surface_below_ring">Stalk-surface-below-ring</label></td>
+                <td><select name="stalk_surface_below_ring" id="stalk_surface_below_ring">
+                    <option value="0" {{stalk_surface_below_ring_f}}>fibrous</option>
+                    <option value="1" {{stalk_surface_below_ring_y}}>scaly</option>
+                    <option value="2" {{stalk_surface_below_ring_k}}>silky</option>
+                    <option value="3" {{stalk_surface_below_ring_s}}>smooth</option>
+                </select></td>
+                <!--stalk-color-above-ring: brown=n,buff=b,cinnamon=c,gray=g,orange=o,pink=p,red=e,white=w,yellow=y-->
+                <td><label for="stalk_color_above_ring">Stalk-color-above-ring</label></td>
+                <td><select name="stalk_color_above_ring" id="stalk_color_above_ring">
+                    <option value="0" {{stalk_color_above_ring_n}}>brown</option>
+                    <option value="1" {{stalk_color_above_ring_b}}>buff</option>
+                    <option value="2" {{stalk_color_above_ring_c}}>cinnamon</option>
+                    <option value="3" {{stalk_color_above_ring_g}}>gray</option>
+                    <option value="4" {{stalk_color_above_ring_o}}>orange</option>
+                    <option value="5" {{stalk_color_above_ring_p}}>pink</option>
+                    <option value="6" {{stalk_color_above_ring_e}}>red</option>
+                    <option value="7" {{stalk_color_above_ring_w}}>white</option>
+                    <option value="8" {{stalk_color_above_ring_y}}>yellow</option>
+                </select></td>
+                <!--stalk-color-below-ring: brown=n,buff=b,cinnamon=c,gray=g,orange=o,pink=p,red=e,white=w,yellow=y-->
+                <td><label for="stalk_color_below_ring">Stalk-color-below-ring</label></td>
+                <td><select name="stalk_color_below_ring" id="stalk_color_below_ring">
+                    <option value="0" {{stalk_color_below_ring_n}}>brown</option>
+                    <option value="1" {{stalk_color_below_ring_b}}>buff</option>
+                    <option value="2" {{stalk_color_below_ring_c}}>cinnamon</option>
+                    <option value="3" {{stalk_color_below_ring_g}}>gray</option>
+                    <option value="4" {{stalk_color_below_ring_o}}>orange</option>
+                    <option value="5" {{stalk_color_below_ring_p}}>pink</option>
+                    <option value="6" {{stalk_color_below_ring_e}}>red</option>
+                    <option value="7" {{stalk_color_below_ring_w}}>white</option>
+                    <option value="8" {{stalk_color_below_ring_y}}>yellow</option>
+                </select></td>
+            </tr>
+            <tr><!--veil-type: partial=p,universal=u-->
+                <td><label for="veil_type">Veil type</label></td>
+                <td><select name="veil_type" id="veil_type">
+                    <option value="1" {{veil_type_p}}>partial</option>
+                    <option value="0" {{veil_type_u}}>universal</option>
+                </select></td>
+                <!--veil-color: brown=n,orange=o,white=w,yellow=y-->
+                <td><label for="veil_color">Veil color</label></td>
+                <td><select name="veil_color" id="veil_color">
+                    <option value="0" {{veil_color_n}}>brown</option>
+                    <option value="1" {{veil_color_o}}>orange</option>
+                    <option value="2" {{veil_color_w}}>white</option>
+                    <option value="3" {{veil_color_y}}>yellow</option>
+                </select></td>
+            </tr>
+            <tr>
+                <!--ring-number: none=n,one=o,two=t-->
+                <td><label for="ring_number">Ring number</label></td>
+                <td><select name="ring_number" id="ring_number">
+                    <option value="0" {{ring_number_n}}>none</option>
+                    <option value="1" {{ring_number_o}}>one</option>
+                    <option value="2" {{ring_number_t}}>two</option>
+                </select></td>
+                <!--ring-type: cobwebby=c,evanescent=e,flaring=f,large=l,none=n,pendant=p,sheathing=s,zone=z-->
+                <td><label for="ring_type">Ring type</label></td>
+                <td><select name="ring_type" id="ring_type">
+                    <option value="0" {{ring_type_c}}>cobwebby</option>
+                    <option value="1" {{ring_type_e}}>evanescent</option>
+                    <option value="2" {{ring_type_f}}>flaring</option>
+                    <option value="3" {{ring_type_l}}>large</option>
+                    <option value="4" {{ring_type_n}}>none</option>
+                    <option value="5" {{ring_type_p}}>pendant</option>
+                    <option value="6" {{ring_type_s}}>sheathing</option>
+                    <option value="7" {{ring_type_z}}>zone</option>
+                </select></td>
+            </tr>
+            <tr>
+                <!--spore-print-color: black=k,brown=n,buff=b,chocolate=h,green=r,orange=o,purple=u,white=w,yellow=y-->
+                <td><label for="spore_print_color">Spore print color</label></td>
+                <td><select name="spore_print_color" id="spore_print_color">
+                    <option value="0" {{spore_print_color_k}}>black</option>
+                    <option value="1" {{spore_print_color_n}}>brown</option>
+                    <option value="2" {{spore_print_color_b}}>buff</option>
+                    <option value="3" {{spore_print_color_h}}>chocolate</option>
+                    <option value="4" {{spore_print_color_r}}>green</option>
+                    <option value="5" {{spore_print_color_o}}>orange</option>
+                    <option value="6" {{spore_print_color_u}}>purple</option>
+                    <option value="7" {{spore_print_color_w}}>white</option>
+                    <option value="8" {{spore_print_color_y}}>yellow</option>
+                </select></td>
+                <!--population: abundant=a,clustered=c,numerous=n,scattered=s,several=v,solitary=y-->
+                <td><label for="population">Population</label></td>
+                <td><select name="population" id="population">
+                    <option value="0" {{population_a}}>abundant</option>
+                    <option value="1" {{population_c}}>clustered</option>
+                    <option value="2" {{population_n}}>numerous</option>
+                    <option value="3" {{population_s}}>scattered</option>
+                    <option value="4" {{population_v}}>several</option>
+                    <option value="5" {{population_y}}>solitary</option>
+                </select></td>
+                <!--habitat: grasses=g,leaves=l,meadows=m,paths=p,urban=u,waste=w,woods=d-->
+                <td><label for="habitat">Habitat</label></td>
+                <td><select name="habitat" id="habitat">
+                    <option value="0" {{habitat_g}}>grasses</option>
+                    <option value="1" {{habitat_l}}>leaves</option>
+                    <option value="2" {{habitat_m}}>meadows</option>
+                    <option value="3" {{habitat_p}}>paths</option>
+                    <option value="4" {{habitat_u}}>urban</option>
+                    <option value="5" {{habitat_w}}>waste</option>
+                    <option value="6" {{habitat_d}}>woods</option>
+                </select></td>
+            </tr>
+            <tr >
+                <td colspan="2"><input type="submit" value="submit"></td>
+            </tr>
+        </form>
+        </table>
+        <br>
+        <div>
+            <p>評估結果 : {{prediction}}</p> 
+        </div>
+    </body>
+</html>
